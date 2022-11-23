@@ -128,7 +128,7 @@ nav ul li a:focus::before{
     max-height: 100%;
     background-color: var(--secondary-color);
     opacity: 0.9;
-    color: white;
+    color: var(--secondary-color);
     box-sizing: border-box;
     padding: 1rem;
     transition: all 0.7s ease-in-out;
@@ -151,6 +151,7 @@ nav ul li a:focus::before{
     box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.5);
     right: 5px;
     bottom: 5px;
+    color: var(--secondary-color);
 }
 @media (max-width:900px) {
     .header{
