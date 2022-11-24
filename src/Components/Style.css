@@ -170,3 +170,16 @@ nav ul li a:focus::before{
         
     }
 }
+/* .grid-containergrid {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+
+  }
+  .grid-item {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    position: relative;
+  } */

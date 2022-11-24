@@ -1,5 +1,6 @@
 import react from "react";
 
+
 const Card=(movie)=>{
     console.log(movie.info);
     let img_path="https://image.tmdb.org/t/p/w500";
