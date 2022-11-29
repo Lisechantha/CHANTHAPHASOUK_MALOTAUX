@@ -1,20 +1,34 @@
-import react from "react";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis,Tooltip,Legend } from 'recharts';
+import React, { useEffect, useState } from "react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
-const Widget3 = (movie) => {
-    console.log(movie.info);
-    return (
-        <>
-            <LineChart width={730} height={250} data={movie.info}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey={movie.info.vote_average} stroke="#8884d8" />
-            </LineChart>
-        </>
-    )
+const url =
+  "https://api.monimpacttransport.fr/beta/getEmissionsPerDistance?km=10";
+
+export default function App() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(url)
+      .then((r) => r.json())
+      .then(setData);
+  }, []);
+  return (
+    // BarChart => name + value
+    <BarChart
+      width={600}
+      height={300}
+      margin="auto"
+      data={data.map((it) => ({ name: it.name, value: it.emissions.gco2e }))}
+    >
+      {/* XAxis => dataMonth */}
+      <XAxis dataKey="name" />
+
+      {/* YAxis => value */}
+      <YAxis />
+
+      <Tooltip />
+
+      {/* Bar => name */}
+      <Bar dataKey="value" stackId="a" fill="#8884d8" />
+    </BarChart>
+  );
 }
-export default Widget3;

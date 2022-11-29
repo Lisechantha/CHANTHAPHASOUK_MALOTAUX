@@ -1,14 +1,13 @@
-import react from "react";
 import React, { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
-const url2 =
+const url =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=491c441367c3f74fbdc2f5597625c8ec";
 
 export default function App() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(url2)
+    fetch(url)
       .then((r) => r.json())
       .then(setData);
   }, []);
@@ -18,7 +17,7 @@ export default function App() {
       width={600}
       height={300}
       margin="auto"
-      data={data.map((it) => ({ name: it.name, value: it.vote_average}))}
+      data={data.map((it) => ({ name: it.results.title, value: it.results.vote_average}))}
     >
       {/* XAxis => dataMonth */}
       <XAxis dataKey="name" />
@@ -33,5 +32,6 @@ export default function App() {
     </BarChart>
   );
 }
+
 
 

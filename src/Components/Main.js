@@ -4,6 +4,7 @@ import Card from './Card';
 import Widget1 from "./Widget1";
 import Widget2 from "./Widget2";
 import Widget3 from "./Widget3";
+import Widget4 from "./Widget4";
 let API_key = "&api_key=491c441367c3f74fbdc2f5597625c8ec"
 let base_url = "https://api.themoviedb.org/3";
 let url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key
@@ -46,16 +47,27 @@ const Main = () => {
                 }
             </div>
 
-                {/* <div className="container2">
+            {/* <div className="container1">
                 {
-                    <><Canvawidget /></>
+                    (movieData.length == 0) ? <p className="notfound">Not Found</p> : <Widget1 info={movieData}  />
                 }
             </div> */}
-                <div className="container3">
-                    {
-                        (movieData.length == 0) ? <p className="notfound">Not Found</p> : <Widget1 info={movieData}  />
-                    }
-                </div>
+            {/* <div className="container2">
+                {
+                    (movieData.length == 0) ? <p className="notfound">Not Found</p> : <Widget2 info={movieData} />
+                }
+            </div> */}
+            <div className="container3">
+                {
+                    (movieData.length == 0) ? <p className="notfound">Not Found</p> : <Widget3/>
+                }
+            </div>
+            <div className="container4">
+                {
+                    (movieData.length == 0) ? <p className="notfound">Not Found</p> : <Widget4/>
+                }
+            </div>
+
 
 
             </>
