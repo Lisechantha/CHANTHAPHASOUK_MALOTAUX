@@ -169,6 +169,10 @@ nav ul li a:focus::before{
         margin-right: 100px;
         
     }
+    .movie-app > .row{
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
 }
 /* .grid-containergrid {
     display: grid;

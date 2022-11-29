@@ -1,8 +1,9 @@
 import react, { useEffect, useState } from "react";
 import Canvawidget from "./Canvawidget";
 import Card from './Card';
-import Widget1 from  "./Widget1";
-import Widget2 from  "./Widget2";
+import Widget1 from "./Widget1";
+import Widget2 from "./Widget2";
+import Widget3 from "./Widget3";
 let API_key = "&api_key=491c441367c3f74fbdc2f5597625c8ec"
 let base_url = "https://api.themoviedb.org/3";
 let url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key
@@ -44,23 +45,20 @@ const Main = () => {
                     })
                 }
             </div>
-            {/* <div className="container2">
+
+                {/* <div className="container2">
                 {
                     <><Canvawidget /></>
                 }
             </div> */}
-               <div className="container3">
-                {
-                    (movieData.length == 0) ? <p className="notfound">Not Found</p> : movieData.map((res, pos) => {
-                        return (
-                            <><Widget1 info={res} key={pos} /></>
+                <div className="container3">
+                    {
+                        (movieData.length == 0) ? <p className="notfound">Not Found</p> : <Widget1 info={movieData}  />
+                    }
+                </div>
 
-                        )
-                    })
-                }
-            </div>
 
-        </>
-    )
+            </>
+            )
 }
-export default Main; 
+            export default Main;
